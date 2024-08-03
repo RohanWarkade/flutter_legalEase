@@ -42,6 +42,8 @@ dependencies:
   lottie: ^3.1.2
   flutter_svg: ^2.0.10+1
   firebase_core: ^2.24.2
+  firebase_auth:
+  shared_preferences: ^2.3.1
 
 dev_dependencies:
   flutter_test:

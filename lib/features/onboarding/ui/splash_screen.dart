@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_legalease/app.dart';
 import 'package:flutter_legalease/features/onboarding/ui/onboarding_screen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:onboarding/onboarding.dart';
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Onbording()));
+          context, MaterialPageRoute(builder: (context) => DecidePage()));
     });
   }
 

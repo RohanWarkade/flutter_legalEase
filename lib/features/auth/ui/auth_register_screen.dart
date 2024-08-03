@@ -149,11 +149,14 @@ class _AuthRegisterScreenState extends State<AuthRegisterScreen> {
                   child: Text(isLogin ? "Login" : "Register"),
                 ),
               ),
+              const SizedBox(
+                height: 15,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(isLogin
-                      ? "Don't have an account"
+                      ? "Don't have an account?  "
                       : "Already have an account"),
                   InkWell(
                     onTap: () {
