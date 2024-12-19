@@ -12,3 +12,5 @@ class AutherrorState extends AuthActionState {
   AutherrorState({required this.error});
 }
 //main state //action stateerror state message state
+
+class AuthSuccessState extends AuthActionState{}

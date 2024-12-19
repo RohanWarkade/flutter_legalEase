@@ -230,7 +230,16 @@ class _AuthRegisterScreenState extends State<AuthRegisterScreen> {
         ),
       ),
       body: BlocConsumer<AuthBloc, AuthState>(
+        bloc: authBloc,
+        listenWhen: (previous, current) => current is AuthActionState,
+        buildWhen: (previous, current) => current is! AuthActionState,
         listener: (context, state) {
+          if (state is AutherrorState) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.error)));
+          } else if (state is AuthSuccessState) {
+            Navigator.popUntil(context, (route) => route.isFirst);
+          }
           // TODO: implement listener
         },
         builder: (context, state) {
@@ -349,9 +358,14 @@ class _AuthRegisterScreenState extends State<AuthRegisterScreen> {
                     width: double.maxFinite,
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          // Perform login or registration
-                        }
+                        // if (_formKey.currentState!.validate()) {
+                        //   // Perform login or registration
+                        // }
+                        authBloc.add(AuthenticationEvent(
+                            authType:
+                                isLogin ? AuthType.login : AuthType.register,
+                            email: emailController.text,
+                            password: passwordController.text));
                       },
                       child: Text(isLogin ? "Login" : "Register"),
                     ),

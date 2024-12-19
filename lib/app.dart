@@ -36,9 +36,9 @@ class _DecidePageState extends State<DecidePage> {
         stream: DecidePage.authStream.stream,
         builder: (context, snapshot) {
           if (snapshot.data == null || (snapshot.data?.isEmpty ?? true)) {
-            return Onbording();
+            return Onbording(); //returns when user is not authenticated
           } else {
-            return TweetPage();
+            return TweetPage(); //when authenticated
           }
         });
   }
